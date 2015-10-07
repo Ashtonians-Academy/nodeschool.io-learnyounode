@@ -1,7 +1,9 @@
 var fs = require('fs');
 var filePath = process.argv[2];
-var fileContents = fs.readFileSync(filePath).toString();
+fs.readFile(filePath, function (err,fileContents){
+    var numberOfLines = fileContents.toString().split('\n').length;
+    console.log(numberOfLines-1);
+});
 
-var numberOfLines = fileContents.split('\n').length;
-console.log(numberOfLines-1);
+
 
