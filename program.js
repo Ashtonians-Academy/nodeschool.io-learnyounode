@@ -1,6 +1,7 @@
-var result = 0; 
-for (var i = 2; i < process.argv.length; i++) {
-	result += Number(process.argv[i]);
-};
+var fs = require('fs');
+var filePath = process.argv[2];
+var fileContents = fs.readFileSync(filePath).toString();
 
-console.log(result)
+var numberOfLines = fileContents.split('\n').length;
+console.log(numberOfLines-1);
+
