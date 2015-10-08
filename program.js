@@ -1,8 +1,13 @@
 var fs = require('fs');
-var filePath = process.argv[2];
-fs.readFile(filePath, function (err,fileContents){
-    var numberOfLines = fileContents.toString().split('\n').length;
-    console.log(numberOfLines-1);
+var dir = process.argv[2];
+var extensionFilter = process.argv[3];
+
+fs.readdir(dir, function (err, fileList){
+    for(var i = 0; i < fileList.length; i++ )
+    {
+        if(fileList[i].split('.')[1] == extensionFilter)
+            console.log(fileList[i]);
+    }
 });
 
 
