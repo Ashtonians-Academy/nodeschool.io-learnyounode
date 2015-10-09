@@ -1,14 +1,11 @@
-var fs = require('fs');
-var dir = process.argv[2];
-var extensionFilter = process.argv[3];
+var FilterFileList = require('./FilterFileList');
 
-fs.readdir(dir, function (err, fileList){
-    for(var i = 0; i < fileList.length; i++ )
+
+FilterFileList(process.argv[2], process.argv[3], function (err, files){
+    files.forEach(function (file)
     {
-        if(fileList[i].split('.')[1] == extensionFilter)
-            console.log(fileList[i]);
-    }
+        console.log(file);
+    });
 });
-
 
 
