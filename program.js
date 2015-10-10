@@ -1,11 +1,8 @@
-var FilterFileList = require('./FilterFileList');
+var http = require('http');
 
-
-FilterFileList(process.argv[2], process.argv[3], function (err, files){
-    files.forEach(function (file)
-    {
-        console.log(file);
+http.get(process.argv[2], function (response) {
+    response.setEncoding('utf8');
+    response.on('data',function(data){
+        console.log(data);
     });
 });
-
-
