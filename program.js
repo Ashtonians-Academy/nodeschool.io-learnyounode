@@ -3,7 +3,7 @@ var strftime = require('strftime');
 
 var server = net.createServer(function(socket)
 {
-    socket.end(strftime('%F %R'));
+    socket.end(strftime('%F %R %T'));
 });
 
 
